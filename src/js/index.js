@@ -54,9 +54,9 @@ const handleTaskProgress = () => {
 document.addEventListener("DOMContentLoaded", onDomLoaded);
 
 function ValidPhone() {
-  var re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-  var myPhone = document.getElementById("telNumber").value;
-  var valid = re.test(myPhone);
+  const re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+  const myPhone = document.getElementById("telNumber").value;
+  const valid = re.test(myPhone);
   return valid;
 }
 
@@ -74,8 +74,10 @@ myButton.addEventListener("click", function (ev) {
     })
       .then((data) => {
         if (data.status == "200") {
-          let mydiv = document.getElementById("response");
+          const myPhone = document.getElementById("telNumber");
+          const mydiv = document.getElementById("response");
           mydiv.innerHTML = "Номер успешно отправлен";
+          myPhone.value = "";
           setTimeout(() => {
             mydiv.innerHTML = "";
           }, 2000);
